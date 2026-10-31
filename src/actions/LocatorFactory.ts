@@ -56,4 +56,3 @@ public static async getAllLocators(input: string | Locator): Promise<Locator[]> 
 
 }
 
-
