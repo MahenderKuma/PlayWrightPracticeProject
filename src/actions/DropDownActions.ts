@@ -1,5 +1,4 @@
 import { Locator } from "@playwright/test";
-import {LocatorFactory} from "./LocatorFactory";
 
 export class DropDownActions {
 

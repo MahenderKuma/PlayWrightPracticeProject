@@ -10,8 +10,12 @@ export class ConfigManager {
         return process.env.HEADLESS === 'true';
     }
 
-    static getBrowser():'chromium' | 'firefox' | 'webkit'{
-        return (process.env.BROWSER as any) || 'chromium';
+    static getBrowser(): 'chromium' | 'firefox' | 'webkit' {
+        const browser = process.env.BROWSER;
+        if (browser === 'chromium' || browser === 'firefox' || browser === 'webkit') {
+            return browser;
+        }
+        return 'chromium';
     }
 
     static getTimeout():number{

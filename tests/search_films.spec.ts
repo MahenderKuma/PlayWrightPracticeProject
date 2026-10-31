@@ -1,4 +1,4 @@
-import { test } from '@playwright/test';
+import { test, type Locator } from '@playwright/test';
 import { ConfigManager } from '../src/config/configManager';
 
 test('search films and display results', async ({ page }) => {
@@ -9,14 +9,19 @@ test('search films and display results', async ({ page }) => {
   try {
     const popup = page.locator('button:has-text("Not Now"), button:has-text("No thanks"), button[aria-label="close"], button:has-text("×")');
     if (await popup.count()) await popup.first().click();
-  } catch (e) {}
+  } catch {
+    // ignore popup closing errors
+  }
 
   // locate search input with several fallbacks
-  let search = null as any;
+  let search: Locator | null = null;
   const selectors = ['input[placeholder*="Search"]', 'input[type="search"]', 'input[aria-label*="Search"]'];
   for (const sel of selectors) {
     const loc = page.locator(sel);
-    if (await loc.count()) { search = loc.first(); break; }
+    if (await loc.count()) {
+      search = loc.first();
+      break;
+    }
   }
 
   if (!search) {
