@@ -18,9 +18,9 @@ export class PageActions {
       return this.page;
    }
 
-   public async gotoURL(url: string,description='targer URL'):Promise<void> {
-   await this.page.goto(url, { waitUntil: 'domcontentloaded' });
-
+   public async gotoURL(url: string, description = 'target URL'): Promise<void> {
+      void description;
+      await this.page.goto(url, { waitUntil: 'domcontentloaded' });
    }
 
    public async SwitchToDefaultPage():Promise<void>{

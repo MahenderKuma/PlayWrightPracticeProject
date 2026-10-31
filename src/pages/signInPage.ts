@@ -1,7 +1,7 @@
 import { PageActions } from "../actions/PageActions";
 import { UIAllActions } from "../actions/UIAllActions";
 
-const BOOKMYSHOW_URL = 'https://parabank.parasoft.com/parabank/index.html';
+const BOOKMYSHOW_URL = 'https://in.bookmyshow.com/explore/home/secunderabad';
 export class SignInPage{
     private ui:UIAllActions;
      private readonly pageReadySelector = 'body';

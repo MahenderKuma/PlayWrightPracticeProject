@@ -1,4 +1,4 @@
-import { Locator, Page } from "@playwright/test";
+import { Locator } from "@playwright/test";
 import { UIActions } from "./UIActions";
 import { CheckBoxActions } from "./CheckBoxActions";
 import { EditBoxActions } from "./EditBoxActions";
